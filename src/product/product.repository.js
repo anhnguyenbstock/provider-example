@@ -11,7 +11,19 @@ class ProductRepository {
     }
 
     async fetchAll() {
-        return [...this.products.values()]
+        return [...this.products.values()];
+    }
+
+    async getById(id) {
+        return this.products.get(id);
+    }
+
+    async getProductsName() {
+        const arr = []
+        this.products.forEach((val) => {
+            arr.push({name: val.name})
+        })
+        return arr;
     }
 }
 
